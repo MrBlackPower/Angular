@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
@@ -7,5 +7,18 @@ import { Component } from '@angular/core';
     styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent {
+    @Output() currentPage = new EventEmitter<HeaderPage>();
 
+    onRecipes(){
+        this.currentPage.emit(HeaderPage.RECIPES);
+    }
+
+    onShopping(){
+        this.currentPage.emit(HeaderPage.SHOPPING_LIST);
+    }
+}
+
+export enum HeaderPage{
+    RECIPES,
+    SHOPPING_LIST
 }
