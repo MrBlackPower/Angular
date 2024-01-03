@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,11 +8,11 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.sass']
 })
 export class RecipeListComponent {
-  recipes: Recipe[] = [new Recipe("A Test Recipe","Nur einen Test","https://comidinhasdochef.com/wp-content/uploads/2016/06/Receita-de-Almoc%CC%A7o-em-12-minutos-00.png")];
+  recipes: Recipe[];
 
-  constructor() {}
+  constructor(private recipeService:RecipeService) {}
 
   ngOnInit(){
-
+    this.recipes = this.recipeService.getRecipes();
   }
 }
