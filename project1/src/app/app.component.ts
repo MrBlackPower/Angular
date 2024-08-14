@@ -7,11 +7,5 @@ import { HeaderPage } from './header/header.component';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  headerPage:HeaderPage = HeaderPage.RECIPES;
-
-  updateCurrentHeaderPage(page : HeaderPage) {
-    this.headerPage = page;
-  }
-  
-  title = 'project1';
+  title = 'Die Rezeptfunkometer';
 }

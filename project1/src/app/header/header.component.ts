@@ -8,15 +8,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
     collapsed = true;
-    @Output() currentPage = new EventEmitter<HeaderPage>();
-
-    onRecipes(){
-        this.currentPage.emit(HeaderPage.RECIPES);
-    }
-
-    onShopping(){
-        this.currentPage.emit(HeaderPage.SHOPPING_LIST);
-    }
 }
 
 export enum HeaderPage{
