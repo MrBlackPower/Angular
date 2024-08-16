@@ -1,4 +1,15 @@
 <app-header />
 <main>
-  <app-user *ngFor="let i of dum" [user]="i"/>
+  <ul id = "users">
+    <li *ngFor="let i of dum">
+      <app-user  [user]="i" [selected]="this.selected?.id === i.id" (select)="onSelectUser($event)"/>
+    </li>
+  </ul>
+  <app-tasks *ngIf="this.selected; else fallback" [user]="this.selected"/>
+  <ng-template #fallback>
+    <div>
+      <h2>Willkomen!</h2>
+      <p>Bitte wählen Sie ein User, um weiter vorwärts zu kommen. </p>
+    </div>
+  </ng-template>
 </main>

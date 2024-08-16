@@ -1,0 +1,17 @@
+<section id="tasks">
+    <header>
+        <h2>{{ this.selectedUser.name }}s Erledigungliste!</h2>
+        <menu>
+            <button (click)="onAddTask()">Add Task</button>
+        </menu>
+    </header>
+
+    <ul>
+        <li *ngIf="showAddTask" >
+            <app-add-task (add)="addTask($event)" (cancel)="cancelAddTask()"/>
+        </li>
+        <li *ngFor="let task of selectedUserTasks" >
+            <app-task [task]="task" (finished)="onFinishedTask($event)"/>
+        </li>
+    </ul>
+</section>

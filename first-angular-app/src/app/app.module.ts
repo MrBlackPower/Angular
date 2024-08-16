@@ -5,16 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from "./header/header.component";
 import { UserComponent } from './user/user.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { TaskComponent } from './tasks/task/task.component';
+import { NgFor } from '@angular/common';
+import { AddTaskComponent } from './tasks/add-task/add-task.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HeaderComponent
+    HeaderComponent,
+    UserComponent,
+    TasksComponent,
+    TaskComponent,
+    AddTaskComponent
 ],
   providers: [],
   bootstrap: [AppComponent]
