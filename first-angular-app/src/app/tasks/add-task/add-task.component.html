@@ -4,15 +4,15 @@
     <form (ngSubmit)="onSubmit()">
         <p>
             <label for="title">Title</label>
-            <input type="text" id="title" name="title" [(ngModel)]="task.title"/>
+            <input type="text" id="title" name="title" [(ngModel)]="task.title" required/>
         </p>
         <p>
             <label for="summary">Summary</label>
-            <input type="text" id="summary" rows="5" name="summary" [(ngModel)]="task.summary"/>
+            <input type="text" id="summary" rows="5" name="summary" [(ngModel)]="task.summary" required/>
         </p>
         <p>
             <label for="due-date">Due Date</label>
-            <input type="date" id="due-date" name="due-date" [(ngModel)]="task.dueDate"/>
+            <input type="date" id="due-date" name="due-date" [(ngModel)]="task.dueDate" required/>
         </p>
         <p class="actions">
             <button type="button" (click)="onCancelTask()">Cancel</button>

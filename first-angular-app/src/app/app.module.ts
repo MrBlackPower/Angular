@@ -9,6 +9,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskComponent } from './tasks/task/task.component';
 import { NgFor } from '@angular/common';
 import { AddTaskComponent } from './tasks/add-task/add-task.component';
+import { CardComponent } from './shared/card/card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AddTaskComponent } from './tasks/add-task/add-task.component';
     UserComponent,
     TasksComponent,
     TaskComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    CardComponent
 ],
   providers: [],
   bootstrap: [AppComponent]

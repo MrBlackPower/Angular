@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CardComponent } from '../shared/card/card.component';
 
 @Component({
   selector: 'app-user',
   standalone: true,
   templateUrl: './user.component.html',
+  imports: [ CardComponent ],
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent {

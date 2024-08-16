@@ -8,7 +8,7 @@
 
     <ul>
         <li *ngIf="showAddTask" >
-            <app-add-task (add)="addTask($event)" (cancel)="cancelAddTask()"/>
+            <app-add-task [userID]="this.selectedUser.id" (close)="closeAddTask()"/>
         </li>
         <li *ngFor="let task of selectedUserTasks" >
             <app-task [task]="task" (finished)="onFinishedTask($event)"/>

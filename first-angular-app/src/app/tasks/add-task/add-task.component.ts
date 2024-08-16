@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task, TaskComponent } from '../task/task.component';
 import { FormsModule } from '@angular/forms';
+import { TaskService } from '../tasks.service';
 
 @Component({
   selector: 'app-add-task',
@@ -10,6 +11,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent {
+  @Input() userID! : string;
+  @Output() close : EventEmitter<void> = new EventEmitter();
+  private taskService : TaskService;
   task: Task = {
     id: '',
     userID: '',
@@ -17,17 +21,23 @@ export class AddTaskComponent {
     summary: '',
     dueDate: new Date()
   };
-  @Output() add : EventEmitter<Task> = new EventEmitter<Task>();
-  @Output() cancel : EventEmitter<void> = new EventEmitter();
+
+  constructor(taskService : TaskService){
+    this.taskService = taskService;
+  }
 
   onSubmit(){
     if(typeof this.task.dueDate != Date()){
       this.task.dueDate = new Date(this.task.dueDate);
     }
-    this.add.emit(this.task);
+    this.task.userID = this.userID;
+    this.task.id = Math.floor(Math.random() * 100).toString();
+    
+    this.taskService.addTask(this.task);
+    this.close.emit();
   }
 
   onCancelTask(){
-    this.cancel.emit();
+    this.close.emit();
   }
 }
