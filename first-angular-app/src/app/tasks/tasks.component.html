@@ -11,7 +11,7 @@
             <app-add-task [userID]="this.selectedUser.id" (close)="closeAddTask()"/>
         </li>
         <li *ngFor="let task of selectedUserTasks" >
-            <app-task [task]="task" (finished)="onFinishedTask($event)"/>
+            <app-task [task]="task"/>
         </li>
     </ul>
 </section>

@@ -37,10 +37,6 @@ export class TasksComponent {
     return this.taskService.selectedUserTasks(this.user.id);
   }
 
-  onFinishedTask(t : Task) {
-    this.taskService.removeTask(t.id);
-  }
-
   onAddTask() {
     this.showAddTask = !this.showAddTask;
   }
